@@ -1,6 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 
 /**
 * Navigation component
@@ -22,11 +22,11 @@ const Navigation = ({ data, navClass }) => (
             }
         })}
     </>
-)
+);
 
 Navigation.defaultProps = {
     navClass: `site-nav-item`,
-}
+};
 
 Navigation.propTypes = {
     data: PropTypes.arrayOf(
@@ -36,6 +36,6 @@ Navigation.propTypes = {
         }).isRequired,
     ).isRequired,
     navClass: PropTypes.string,
-}
+};
 
-export default Navigation
+export default Navigation;

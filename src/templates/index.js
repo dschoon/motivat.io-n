@@ -1,9 +1,43 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
 
-import { Layout, PostCard, Pagination } from '../components/common'
-import { MetaData } from '../components/common/meta'
+import { Layout, PostCard, ReactReveal } from '../components/common';
+import { MetaData } from '../components/common/meta';
+
+const revealConfig = {
+    width: 1000,
+    margin: 0,
+    controls: true,
+    progress: true,
+    slideNumber: false,
+    history: true,
+    keyboard: true,
+    overview: true,
+    center: true,
+    touch: true,
+    loop: true,
+    rtl: false,
+    shuffle: false,
+    fragments: true,
+    embedded: false,
+    help: true,
+    showNotes: false,
+    autoSlide: 0,
+    autoSlideStoppable: true,
+    mouseWheel: false,
+    hideAddressBar: true,
+    previewLinks: false,
+    transition: 'slide',
+    transitionSpeed: 'default',
+    backgroundTransition: 'fade',
+    viewDistance: 1,
+    parallaxBackgroundImage: '',
+    parallaxBackgroundSize: '',
+    parallaxBackgroundHorizontal: null,
+    parallaxBackgroundVertical: null,
+    display: 'block',
+};
 
 /**
 * Main index page (home page)
@@ -14,25 +48,27 @@ import { MetaData } from '../components/common/meta'
 *
 */
 const Index = ({ data, location, pageContext }) => {
-    const posts = data.allGhostPost.edges
+    const posts = data.allGhostPost.edges;
+    const sections = posts.map(({ node }) => {
+        console.log(node);
+        return {
+            name: node.title,
+            markup: `<section data-background-image="${node.feature_image}" data-background-opacity=".25"><h1>${node.html}</h1></div></section>`
+        }
+    });
 
     return (
         <>
             <MetaData location={location} />
             <Layout isHome={true}>
-                <div className="container">
-                    <section className="post-feed">
-                        {posts.map(({ node }) => (
-                            // The tag below includes the markup for each post - components/common/PostCard.js
-                            <PostCard key={node.id} post={node} />
-                        ))}
-                    </section>
-                    <Pagination pageContext={pageContext} />
-                </div>
+                <ReactReveal
+                    sections={sections}
+                    reveal={revealConfig}
+                />
             </Layout>
         </>
     )
-}
+};
 
 Index.propTypes = {
     data: PropTypes.shape({
@@ -42,9 +78,9 @@ Index.propTypes = {
         pathname: PropTypes.string.isRequired,
     }).isRequired,
     pageContext: PropTypes.object,
-}
+};
 
-export default Index
+export default Index;
 
 // This page query loads all posts sorted descending by published date
 // The `limit` and `skip` values are used for pagination
@@ -62,4 +98,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
