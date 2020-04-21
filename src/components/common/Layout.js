@@ -48,16 +48,10 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                 </div>
                                 <div className="site-mast-right">
                                     { site.twitter && <a href={ twitterUrl } className="site-nav-item" target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/twitter.svg" alt="Twitter" /></a>}
-                                    { site.facebook && <a href={ facebookUrl } className="site-nav-item" target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/facebook.svg" alt="Facebook" /></a>}
+                                    { site.facebook && <a href={ facebookUrl } className="site-nav-item" target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/instagram.svg" alt="Instagram" /></a>}
                                     <a className="site-nav-item" href={ `https://feedly.com/i/subscription/feed/${config.siteUrl}/rss/` } target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/rss.svg" alt="RSS Feed" /></a>
                                 </div>
                             </div>
-                            { isHome ?
-                                <div className="site-banner">
-                                    <h1 className="site-banner-title">{site.title}</h1>
-                                    <p className="site-banner-desc">{site.description}</p>
-                                </div> :
-                                null}
                         </div>
                     </header>
 
@@ -72,15 +66,9 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                     {/* The footer at the very bottom of the screen */}
                     <footer className="site-foot">
                         <div className="site-foot-nav container">
-                            <div className="site-foot-nav-left">
-                                <Link to="/">{site.title}</Link> © 2019 &mdash; Published with <a className="site-foot-nav-item" href="https://ghost.org" target="_blank" rel="noopener noreferrer">Ghost</a>
-                            </div>
-                            <div className="site-foot-nav-right">
-                                <Navigation data={site.navigation} navClass="site-foot-nav-item" />
-                            </div>
+                            <a href='https://schoonlabs.com' target='_blank'>SchoonLabs</a>
                         </div>
                     </footer>
-
                 </div>
             </div>
 

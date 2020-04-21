@@ -1,8 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Reveal from 'reveal.js';
 
 import 'reveal.js/css/reveal.css';
+
+let Reveal;
+if (typeof window !== `undefined`) {
+    Reveal = require('reveal.js');
+}
 
 class ReactReveal extends React.Component {
     constructor(props) {
@@ -32,7 +36,7 @@ class ReactReveal extends React.Component {
     }
 
     componentDidMount() {
-        Reveal.initialize(this.props.reveal);
+        Reveal && Reveal.initialize && Reveal.initialize(this.props.reveal);
     }
 
     render() {

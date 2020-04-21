@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
-import { Layout, PostCard, ReactReveal } from '../components/common';
+import { Layout, ReactReveal } from '../components/common';
 import { MetaData } from '../components/common/meta';
 
 const revealConfig = {
-    width: 1000,
+    width: '100%',
+    height: '100%',
     margin: 0,
     controls: true,
     progress: true,
@@ -50,10 +51,9 @@ const revealConfig = {
 const Index = ({ data, location, pageContext }) => {
     const posts = data.allGhostPost.edges;
     const sections = posts.map(({ node }) => {
-        console.log(node);
         return {
             name: node.title,
-            markup: `<section data-background-image="${node.feature_image}" data-background-opacity=".25"><h1>${node.html}</h1></div></section>`
+            markup: `<section data-background-image="${node.feature_image}" data-background-opacity=".4"><div class="slide-body">${node.html}</div></div></section>`
         }
     });
 
