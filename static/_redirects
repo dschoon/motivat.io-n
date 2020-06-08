@@ -3,3 +3,9 @@
 
 https://gatsby-starter-ghost.netlify.com/*      https://gatsby.ghost.org/:splat    301!
 http://gatsby-starter-ghost.netlify.com/*       https://gatsby.ghost.org/:splat    301!
+
+[[redirects]]
+  from = "/*"
+  to = "/n/*"
+  status = 301
+  force = true

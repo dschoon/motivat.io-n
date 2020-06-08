@@ -5,6 +5,8 @@ import { graphql } from 'gatsby';
 import { Layout, ReactReveal } from '../components/common';
 import { MetaData } from '../components/common/meta';
 
+import '../assets/styles/fontawesome-all.min.css';
+
 const revealConfig = {
     width: '100%',
     height: '100%',
