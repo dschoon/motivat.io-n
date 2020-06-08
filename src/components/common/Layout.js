@@ -20,8 +20,8 @@ import '../../styles/app.css';
 */
 const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
     const site = data.allGhostSettings.edges[0].node;
-    const twitterUrl = site.twitter ? `https://twitter.com/${site.twitter.replace(/^@/, ``)}` : null;
-    const facebookUrl = site.facebook ? `https://www.facebook.com/${site.facebook.replace(/^\//, ``)}` : null;
+    const twitterUrl = `https://twitter.com/motivat_io_n`;
+    const instagramUrl = `https://www.instagram.com/motivat_io_n`;
 
     return (
         <>
@@ -48,10 +48,10 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                     </Link>
                                 </div>
                                 <div className="site-mast-right">
-                                    { site.twitter && <a href={ twitterUrl } className="site-nav-item" target="_blank" rel="noopener noreferrer">
+                                    {<a href={ twitterUrl } className="site-nav-item" target="_blank" rel="noopener noreferrer">
                                         <i className='fab fa-twitter' />
                                     </a>}
-                                    { site.facebook && <a href={ facebookUrl } className="site-nav-item" target="_blank" rel="noopener noreferrer">
+                                    {<a href={ instagramUrl } className="site-nav-item" target="_blank" rel="noopener noreferrer">
                                         <i className='fab fa-instagram' />
                                     </a>}
                                     <a className="site-nav-item" href={ `https://feedly.com/i/subscription/feed/${config.siteUrl}/rss/` } target="_blank" rel="noopener noreferrer">
@@ -104,7 +104,7 @@ const DefaultLayoutSettingsQuery = props => (
                         }
                     }
                 }
-                file(relativePath: {eq: "ghost-icon.png"}) {
+                file(relativePath: {eq: "favicon.png"}) {
                     childImageSharp {
                         fixed(width: 30, height: 30) {
                             ...GatsbyImageSharpFixed
