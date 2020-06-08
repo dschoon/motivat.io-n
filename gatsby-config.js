@@ -69,7 +69,7 @@ module.exports = {
             resolve: `gatsby-plugin-ghost-manifest`,
             options: {
                 short_name: config.shortTitle,
-                start_url: `/`,
+                start_url: `/n`,
                 background_color: config.backgroundColor,
                 theme_color: config.themeColor,
                 display: `minimal-ui`,
